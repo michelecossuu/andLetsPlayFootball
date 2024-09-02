@@ -26,7 +26,7 @@ public class PlayerController {
     }
 
     @GetMapping("/search")
-    public ResponseEntity<List<Player>> searchPlayers(@RequestParam("nome") String name) {
+    public ResponseEntity<List<Player>> searchPlayers(@RequestParam("name") String name) {
         List<Player> players = playerService.searchPlayers(name);
         return ResponseEntity.ok(players);
     }
