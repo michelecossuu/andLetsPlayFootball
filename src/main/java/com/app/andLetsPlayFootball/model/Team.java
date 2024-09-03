@@ -1,8 +1,10 @@
 package com.app.andLetsPlayFootball.model;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -10,9 +12,12 @@ import jakarta.persistence.Table;
 public class Team {
     
     @Id
-    @GeneratedValue
     private Long id;
+    
     private String name;
+
+    @OneToMany(mappedBy = "team")
+    private List<Player> players;
     
     public Long getId() {
         return id;
@@ -25,6 +30,13 @@ public class Team {
     }
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Player> getPlayers() {
+        return players;
+    }
+    public void setPlayers(List<Player> players) {
+        this.players = players;
     }
 
     @Override

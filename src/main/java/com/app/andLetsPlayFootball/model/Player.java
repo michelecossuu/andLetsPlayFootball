@@ -2,7 +2,10 @@ package com.app.andLetsPlayFootball.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -10,10 +13,14 @@ import jakarta.persistence.Table;
 public class Player {
     
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
-    private String team;
+
+    @ManyToOne
+    @JoinColumn(name = "team")
+    private Team team;
 
     public Long getId() {
         return id;
@@ -31,17 +38,17 @@ public class Player {
         this.name = name;
     }
 
-    public String getTeam() {
+    public Team getTeam() {
         return team;
     }
 
-    public void setTeam(String team) {
+    public void setTeam(Team team) {
         this.team = team;
     }
 
     @Override
     public String toString() {
-        return super.toString();
+        return  "Player{id=" + id + ", name='" + name + '\'' + ", team=" + team + '}';
     }
 
 }
