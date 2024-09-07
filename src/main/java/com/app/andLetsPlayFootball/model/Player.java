@@ -1,6 +1,9 @@
 package com.app.andLetsPlayFootball.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -20,15 +23,18 @@ public class Player {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "name")
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "team")
-    private Team team;
+    @Column(name = "surname", nullable = false)
+    private String surname;
 
-    @Override
-    public String toString() {
-        return  "Player{id=" + id + ", name='" + name + '\'' + ", team=" + team + '}';
-    }
+    @Enumerated(EnumType.STRING)
+    @Column(name = "role")
+    private Role role;
+
+    @ManyToOne
+    @JoinColumn(name = "team", nullable = false)
+    private Team team;
 
 }
