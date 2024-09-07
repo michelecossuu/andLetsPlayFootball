@@ -9,10 +9,11 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Table(name = "teams")
-@Getter @Setter
+@Getter @Setter @ToString
 public class Team {
     
     @Id
@@ -23,11 +24,6 @@ public class Team {
 
     @OneToMany(mappedBy = "team")
     private List<Player> players;
-
-    @Override
-    public String toString() {
-        return "Team [id=" + id + ", name=" + name + "]";
-    }
 
 }
 
