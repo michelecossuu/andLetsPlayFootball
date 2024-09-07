@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.andLetsPlayFootball.dto.TeamDTO;
-import com.app.andLetsPlayFootball.mapper.PlayerMapper;
+import com.app.andLetsPlayFootball.mapper.TeamMapper;
 import com.app.andLetsPlayFootball.model.Team;
 import com.app.andLetsPlayFootball.service.TeamService;
 
@@ -22,9 +22,9 @@ public class TeamController {
     Logger logger = Logger.getLogger(TeamController.class.getName());
 
     private final TeamService teamService;
-    private final PlayerMapper mapper;
+    private final TeamMapper mapper;
 
-    public TeamController(TeamService teamService, PlayerMapper mapper) {
+    public TeamController(TeamService teamService, TeamMapper mapper) {
         this.teamService = teamService;
         this.mapper = mapper;
     }
