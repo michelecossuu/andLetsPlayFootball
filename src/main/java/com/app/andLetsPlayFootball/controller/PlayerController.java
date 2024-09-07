@@ -31,8 +31,8 @@ public class PlayerController {
     }
 
     @GetMapping("/search")
-    public ResponseEntity<List<PlayerDTO>> searchPlayers(@RequestParam("name") String name) {
-        List<Player> players = playerService.searchPlayers(name);
+    public ResponseEntity<List<PlayerDTO>> searchPlayers(@RequestParam("surname") String surname) {
+        List<Player> players = playerService.searchPlayers(surname);
         List<PlayerDTO> playersDTO = new ArrayList<>();
         for (Player p : players) {
             playersDTO.add(mapper.playerToPlayerDTO(p));

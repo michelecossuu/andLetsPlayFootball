@@ -15,8 +15,8 @@ public class PlayerService {
         this.playerRepository = playerRepository;
     }
 
-    public List<Player> searchPlayers(String name) {
-        return playerRepository.findByNameContainingIgnoreCase(name);
+    public List<Player> searchPlayers(String surname) {
+        return playerRepository.findBySurnameContainingIgnoreCase(surname);
     }
 
 }

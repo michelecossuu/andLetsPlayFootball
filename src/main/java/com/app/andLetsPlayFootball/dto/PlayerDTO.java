@@ -10,6 +10,8 @@ public class PlayerDTO {
     
     private Long playerId;
     private String playerName;
+    private String playerSurname;
+    private String playerRole;
     private TeamDTO playerTeamDTO;
 
 }
